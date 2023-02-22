@@ -1,13 +1,13 @@
-import { states } from "./states";
+import { states, state } from "./states";
 
 export class State {
-	#state = states.MENU;
+	#state : state = states.MENU;
 
 	get() {
 		return this.#state;
 	}
 
-	set(newState) {
+	set(newState : state) {
 		this.#state = newState;
 	}
 }
