@@ -1,3 +1,4 @@
+import { PostResponse } from "../types/response.types";
 import { baseUrl } from "./base_url";
 
 export async function fetchPost(id : string) {
