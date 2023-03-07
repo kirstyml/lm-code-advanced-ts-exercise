@@ -11,7 +11,7 @@ export async function sendMessageToServer(message : string) {
 			body: JSON.stringify({ message: message }),
 		});
 
-		const json = await result.json();
+		const json : { success : boolean } = await result.json();
 
 		const { success } = json;
 
