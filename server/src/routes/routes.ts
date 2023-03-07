@@ -82,7 +82,16 @@ function addAPIRoutes(app: Express) {
 		res.status(200).send(JSON.stringify(getAllUsers()));
 	});
 
-	// ❗ [1] See README
+	// this route allows the client to "add a user" to the server
+	console.log("📨  Adding add user route...");
+	apiRouter.post("/users/add", (req, res) => {
+		const { body } = req;
+
+		console.log(`👋 Received "${body.message}"`);
+
+		// reply with a success boolean
+		res.status(200).send({ success: true });
+	});
 
 	apiRouter.get("/users/:id", (req, res) => {
 		res
