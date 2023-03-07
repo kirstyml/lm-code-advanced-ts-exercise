@@ -6,7 +6,7 @@ export interface PostFound extends Post {
 	postFound: boolean
 };
 
-export type PostResponse<T extends Post | PostNotFound> = T extends Post
-	? PostFound
-	: PostNotFound;
+// export type PostResponse<T extends Post | PostNotFound> = T extends Post
+// 	? PostFound
+// 	: PostNotFound;
 
