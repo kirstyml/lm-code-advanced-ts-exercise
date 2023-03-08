@@ -1,3 +1,4 @@
+import { User } from "../../../server/src/types/posts.types";
 import { baseUrl } from "./base_url";
 
 export async function sendUserToServer(userName : string) {
@@ -10,13 +11,11 @@ export async function sendUserToServer(userName : string) {
 			body: JSON.stringify({ name: userName }),
 		});
 
-		const json : { success : boolean } = await result.json();
+		const json : User = await result.json();
 
-		const { success } = json;
-
-		return success;
+		return json;
 	} catch (e) {
 		console.error(e);
-		return false;
+		return undefined;
 	}
 }

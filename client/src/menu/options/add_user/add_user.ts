@@ -1,3 +1,4 @@
+import { sendUserToServer } from "../../../api/add_user";
 import { sendMessageToServer } from "../../../api/send_message_to_server";
 import { states } from "../../../states/states";
 import { clear, print, printNewLine, prompt } from "../../../ui/console";
@@ -10,9 +11,9 @@ export async function addUser() {
 	printNewLine();
 	print(`📨 Creating user "${userName}"...`);
 
-	const success = await sendMessageToServer(userName);
+	const newUser = await sendUserToServer(userName);
 
-	if (success === true) print("🥳 User created successfully!");
+	if (newUser) print(`🥳 User ${newUser.name} created successfully!`);
 	else print("😵 User NOT created.");
 
 	await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
